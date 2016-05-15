@@ -29,7 +29,13 @@ def get_password(email):
     """
 
     # None if password doesn't exist
-    return keyring.get_password("clmail", email)
+    password = keyring.get_password("clmail", email)
+
+    if password is None:
+        password = getpass.getpass("Password: ")
+        connect_email_account(email, password)
+
+    return password
 
 
 def remove_email(email):
