@@ -18,7 +18,7 @@ def connect_email_account(email, password):
     :param email: Email address for account to be used with clmail
     :param password: Password for email address
     """
-    # Throws keyring.errors.PasswordSetError
+    # Raises keyring.errors.PasswordSetError
     keyring.set_password("clmail", email, password)
 
 

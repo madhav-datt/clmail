@@ -90,5 +90,6 @@ def validate_email_with_regex(email):
     """
 
     if not re.match(VALID_ADDRESS_REGEXP, email):
-        error_msg = '"{}" looks invalid'.format(email)
-        raise clmailInvalidEmail(error_msg)
+        return False
+
+    return True
