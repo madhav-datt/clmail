@@ -43,7 +43,8 @@ NO_WS_CTL = r'\x01-\x08\x0b\x0c\x0f-\x1f\x7f'
 QUOTED_PAIR = r'(?:\\.)'
 FWS = r'(?:(?:' + WSP + r'*' + CRLF + r')?' + \
       WSP + \
-    r'+)'                                               # see 3.2.3. Folding white space and comments
+    r'+)'
+# see 3.2.3. Folding white space and comments
 CTEXT = r'[' + NO_WS_CTL + \
         r'\x21-\x27\x2a-\x5b\x5d-\x7e]'                 # see 3.2.3
 CCONTENT = r'(?:' + CTEXT + r'|' + \
