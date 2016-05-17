@@ -14,11 +14,11 @@ import keyring.errors
 def connect_email_account(email, password):
     """
     Securely store password in Python keyring
-
     :param email: Email address for account to be used with clmail
     :param password: Password for email address
+    :raises keyring.errors.PasswordSetError
     """
-    # Raises keyring.errors.PasswordSetError
+    # Raises keyring.errors.PasswordSetError if password not set
     keyring.set_password("clmail", email, password)
 
 
@@ -41,7 +41,6 @@ def get_password(email):
 def remove_email(email):
     """
     Remove stored email and password from keyring
-
     :param email: Email address for account associated with clmail
     """
 
