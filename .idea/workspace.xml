@@ -26,8 +26,8 @@
       <file leaf-file-name="authenticate.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/authenticate.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="18">
-              <caret line="4" column="1" selection-start-line="4" selection-start-column="1" selection-end-line="4" selection-end-column="1" />
+            <state relative-caret-position="0">
+              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="8" selection-end-column="0" />
               <folding>
                 <element signature="e#166#180#0" expanded="true" />
               </folding>
@@ -38,10 +38,10 @@
       <file leaf-file-name="send_mail.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/send_mail.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="612">
-              <caret line="34" column="13" selection-start-line="34" selection-start-column="13" selection-end-line="34" selection-end-column="13" />
+            <state relative-caret-position="18">
+              <caret line="1" column="11" selection-start-line="1" selection-start-column="11" selection-end-line="1" selection-end-column="11" />
               <folding>
-                <element signature="e#0#14#0" expanded="true" />
+                <element signature="e#145#159#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -434,8 +434,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/authenticate.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="18">
-          <caret line="4" column="1" selection-start-line="4" selection-start-column="1" selection-end-line="4" selection-end-column="1" />
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="8" selection-end-column="0" />
           <folding>
             <element signature="e#166#180#0" expanded="true" />
           </folding>
@@ -444,10 +444,10 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/send_mail.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="612">
-          <caret line="34" column="13" selection-start-line="34" selection-start-column="13" selection-end-line="34" selection-end-column="13" />
+        <state relative-caret-position="18">
+          <caret line="1" column="11" selection-start-line="1" selection-start-column="11" selection-end-line="1" selection-end-column="11" />
           <folding>
-            <element signature="e#0#14#0" expanded="true" />
+            <element signature="e#145#159#0" expanded="true" />
           </folding>
         </state>
       </provider>

@@ -1,3 +1,12 @@
+#
+# send_mail.py
+#
+# Send emails through SMTP
+#
+# Copyright (C)   2016    Madhav Datt
+# http://www.gnu.org/licenses/old-licenses/gpl-2.0.html
+#
+
 import smtplib
 from email.MIMEMultipart import MIMEMultipart
 from email.MIMEText import MIMEText
