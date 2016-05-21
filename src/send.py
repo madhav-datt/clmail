@@ -1,5 +1,5 @@
 #
-# send_mail.py
+# send.py
 #
 # Send emails through SMTP
 #
