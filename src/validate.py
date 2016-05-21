@@ -85,9 +85,9 @@ VALID_ADDRESS_REGEXP = '^' + ADDR_SPEC + '$'
 
 def validate_email_with_regex(email):
     """
-    Note that this will only filter out syntax mistakes in email addresses.
-    Most "valid looking" email address will pass even if the email address hasn't
-    been claimed by a user.
+    Will only filter out syntax mistakes in email addresses
+    Most "valid looking" email address will pass even if the email address is not
+    claimed or used by a user.
     """
 
     if not re.match(VALID_ADDRESS_REGEXP, email):
