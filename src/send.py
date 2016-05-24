@@ -14,10 +14,11 @@ import mimetypes
 import os
 import smtplib
 import time
+import authenticate
 from email.mime.base import MIMEBase
 from email.mime.multipart import MIMEMultipart
 from email.mime.text import MIMEText
-import authenticate
+from log import get_logger
 
 
 class SendMail:
