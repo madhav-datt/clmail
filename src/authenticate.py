@@ -7,6 +7,7 @@
 # http://www.gnu.org/licenses/old-licenses/gpl-2.0.html
 #
 
+import getpass
 import keyring
 import keyring.errors
 
@@ -32,7 +33,7 @@ def get_password(email):
     password = keyring.get_password("clmail", email)
 
     if password is None:
-        password = getpass.getpass("Password: ")
+        password = getpass.getpass("Password for {email_id}: ".format(email_id=email))
         connect_email_account(email, password)
 
     return password
