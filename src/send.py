@@ -26,11 +26,17 @@ class SendMail:
     Wrapper around the Python SMTP Library for sending emails
     """
 
-    def __init__(self):
+    def __init__(self, username, password):
+        """
+        Init SendMail Class with user login details
+        """
+        self.username = username
+        self.password = password
+        self.login(self.password)
+
+
+    def send(self, to, cc, bcc, subject, contents):
         pass
-
-
-    def send(self, username, password, to, cc, bcc, ):
 
 
     def login(self, password):
