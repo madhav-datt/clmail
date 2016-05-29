@@ -14,11 +14,11 @@ import mimetypes
 import os
 import smtplib
 import time
-import authenticate
+import authenticate as auth
 from email.mime.base import MIMEBase
 from email.mime.multipart import MIMEMultipart
 from email.mime.text import MIMEText
-from log import get_logger
+from log import loggers
 
 
 class SendMail:
@@ -26,14 +26,14 @@ class SendMail:
     Wrapper around the Python SMTP Library for sending emails
     """
 
-    def __init__(self):
-        pass
+    def __init__(self, username, host='smtp.gmail.com', port='587'):
+        self.username = username
+        self._login()
 
+    def send(self, to, cc=None, bcc=None, subject=None, body=None, attachments=None):
+        """"""
 
-    def send(self, username, password, to, cc, bcc, ):
-
-
-    def login(self, password):
+    def _login(self):
         """
         Login to the SMTP server using password. `login` only needs to be manually run when the
         connection to the SMTP server was closed by the user.
