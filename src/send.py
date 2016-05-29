@@ -26,32 +26,15 @@ class SendMail:
     Wrapper around the Python SMTP Library for sending emails
     """
 
-<<<<<<< HEAD
     def __init__(self, username, host='smtp.gmail.com', port='587'):
         self.username = username
         self._login()
-=======
-    def __init__(self, username, password):
-        """
-        Init SendMail Class with user login details
-        """
-        self.username = username
-        self.password = password
-        self.login(self.password)
->>>>>>> 73fd5e3965cc5ab239061699b62f802369a3202c
 
     def send(self, to, cc=None, bcc=None, subject=None, body=None, attachments=None):
         """"""
 
-<<<<<<< HEAD
     def _login(self):
-=======
-    def send(self, to, cc, bcc, subject, contents):
-        pass
 
-
-    def login(self, password):
->>>>>>> 73fd5e3965cc5ab239061699b62f802369a3202c
         """
         Login to the SMTP server using password. `login` only needs to be manually run when the
         connection to the SMTP server was closed by the user.
