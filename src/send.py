@@ -9,7 +9,6 @@
 #
 
 import email.encoders
-import logging
 import mimetypes
 import os
 import smtplib
@@ -18,7 +17,8 @@ import authenticate as auth
 from email.mime.base import MIMEBase
 from email.mime.multipart import MIMEMultipart
 from email.mime.text import MIMEText
-from log import loggers
+from logging import getLogger
+from validate import validate_email
 
 
 class SendMail:
@@ -29,6 +29,8 @@ class SendMail:
     def __init__(self, username, host='smtp.gmail.com', port='587'):
         self.username = username
         self._login()
+        self.host = host
+        self.port = port
 
     def send(self, to, cc=None, bcc=None, subject=None, body=None, attachments=None):
         """"""
@@ -50,5 +52,4 @@ class SendMail:
             self.smtp.ehlo()
         self.is_closed = False
         if not self.smtp_skip_login:
-            password = self._handle_password(password)
-            self.smtp.login(self.user, password)
+            self.smtp.login(self.username, auth.get_password(self.username))

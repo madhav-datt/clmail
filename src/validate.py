@@ -83,7 +83,7 @@ ADDR_SPEC = LOCAL_PART + r'@' + DOMAIN                  # see 3.4.1
 VALID_ADDRESS_REGEXP = '^' + ADDR_SPEC + '$'
 
 
-def validate_email_with_regex(email):
+def validate_email(email):
     """
     Will only filter out syntax mistakes in email addresses
     Most "valid looking" email address will pass even if the email address is not
