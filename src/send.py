@@ -35,6 +35,12 @@ class SendMail:
     def send(self, to, cc=None, bcc=None, subject=None, body=None, attachments=None):
         """"""
 
+    def _build_message_content(self):
+        """"""
+
+    def _send_email(self, recipient_address, message_content):
+        """"""
+
     def _login(self):
 
         """
