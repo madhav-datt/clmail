@@ -60,7 +60,6 @@ class SendMail:
         if not self.smtp_skip_login:
             self.smtp.login(self.username, auth.get_password(self.username))
 
-
     def _get_mime_object(self, content_string):
         content_object = {
             'mime_object': None,
@@ -107,8 +106,7 @@ class SendMail:
                 content_object['main_type'] = 'application'
                 content_object['sub_type'] = 'octet-stream'
 
-        mime_object = MIMEBase(content_object['main_type'], content_object['sub_type'],
-                               name=content_name)
+        mime_object = MIMEBase(content_object['main_type'], content_object['sub_type'], name=content_name)
         mime_object.set_payload(content)
         content_object['mime_object'] = mime_object
         return content_object
