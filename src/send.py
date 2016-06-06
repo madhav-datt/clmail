@@ -59,3 +59,56 @@ class SendMail:
         self.is_closed = False
         if not self.smtp_skip_login:
             self.smtp.login(self.username, auth.get_password(self.username))
+
+
+    def _get_mime_object(self, content_string):
+        content_object = {
+            'mime_object': None,
+            'encoding': None,
+            'main_type': None,
+            'sub_type': None
+        }
+
+        if isinstance(content_string, dict):
+            for x in content_string:
+                content_string, content_name = x, content_string[x]
+        else:
+            content_name = os.path.basename(content_string)
+
+        # pylint: disable=unidiomatic-typecheck
+        is_raw = type(content_string) == raw
+        if os.path.isfile(content_string) and not is_raw:
+            with open(content_string, 'rb') as f:
+                content_object['encoding'] = 'base64'
+                content = f.read()
+        else:
+            content_object['main_type'] = 'text'
+
+            if is_raw:
+                content_object['mime_object'] = MIMEText(content_string, _charset=self.encoding)
+            else:
+                content_object['mime_object'] = MIMEText(
+                    content_string, 'html', _charset=self.encoding)
+                content_object['sub_type'] = 'html'
+
+            if content_object['sub_type'] is None:
+                content_object['sub_type'] = 'plain'
+            return content_object
+
+        if content_object['main_type'] is None:
+            content_type, _ = mimetypes.guess_type(content_string)
+
+            if content_type is not None:
+                content_object['main_type'], content_object['sub_type'] = content_type.split('/')
+
+        if (content_object['main_type'] is None or
+                    content_object['encoding'] is not None):
+            if content_object['encoding'] != 'base64':
+                content_object['main_type'] = 'application'
+                content_object['sub_type'] = 'octet-stream'
+
+        mime_object = MIMEBase(content_object['main_type'], content_object['sub_type'],
+                               name=content_name)
+        mime_object.set_payload(content)
+        content_object['mime_object'] = mime_object
+        return content_object
