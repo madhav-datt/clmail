@@ -31,6 +31,7 @@ class SendMail:
         self._login()
         self.host = host
         self.port = port
+        self.debug_point = 0
 
     def send(self, to, cc=None, bcc=None, subject=None, body=None, attachments=None):
         """"""
@@ -47,8 +48,8 @@ class SendMail:
         Login to the SMTP server using password. `login` only needs to be manually run when the
         connection to the SMTP server was closed by the user.
         """
-        self.smtp = smtplib.SMTP(self.host, self.port, **self.kwargs)
-        self.smtp.set_debuglevel(self.debuglevel)
+        self.smtp = smtplib.SMTP(self.host, self.port)
+        self.smtp.set_debuglevel(self.debug_point)
         self.smtp.ehlo()
         self.smtp.starttls()
         self.is_closed = False
