@@ -49,19 +49,14 @@ class SendMail:
         """
         self.smtp = smtplib.SMTP(self.host, self.port, **self.kwargs)
         self.smtp.set_debuglevel(self.debuglevel)
-        if self.starttls:
-            self.smtp.ehlo()
-            if self.starttls is True:
-                self.smtp.starttls()
-            else:
-                self.smtp.starttls(**self.starttls)
-            self.smtp.ehlo()
+        self.smtp.ehlo()
+        self.smtp.starttls()
         self.is_closed = False
         self.smtp.login(self.username, auth.get_password(self.username))
 
     def _get_mime_object(self, email_content):
         """
-        Build MIME Objects
+        Build MIME Objects from email content strings
         :param email_content:
         :return: mime_content_object
         """
