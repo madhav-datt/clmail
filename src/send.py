@@ -61,12 +61,12 @@ class SendMail:
             self.smtp.login(self.username, auth.get_password(self.username))
 
     def _get_mime_object(self, content_string):
-        content_object = {
-            'mime_object': None,
-            'encoding': None,
-            'main_type': None,
-            'sub_type': None
-        }
+        """
+        Build MIME Objects
+        :param content_string:
+        :return: content_object
+        """
+        content_object = {'mime_object': None, 'encoding': None, 'main_type': None, 'sub_type': None}
 
         if isinstance(content_string, dict):
             for x in content_string:
@@ -100,8 +100,7 @@ class SendMail:
             if content_type is not None:
                 content_object['main_type'], content_object['sub_type'] = content_type.split('/')
 
-        if (content_object['main_type'] is None or
-                    content_object['encoding'] is not None):
+        if content_object['main_type'] is None or content_object['encoding'] is not None:
             if content_object['encoding'] != 'base64':
                 content_object['main_type'] = 'application'
                 content_object['sub_type'] = 'octet-stream'
