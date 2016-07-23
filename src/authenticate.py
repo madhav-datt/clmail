@@ -21,6 +21,7 @@ def connect_email_account(email, password):
     """
     # Raises keyring.errors.PasswordSetError if password not set
     keyring.set_password("clmail", email, password)
+    keyring.set_password("yagmail", email, password)
 
 
 def get_password(email):
@@ -47,5 +48,6 @@ def remove_email(email):
 
     try:
         keyring.delete_password("clmail", email)
+        keyring.delete_password("yagmail", email)
     except keyring.errors.PasswordDeleteError:
         pass
