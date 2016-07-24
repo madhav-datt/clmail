@@ -15,3 +15,4 @@ def send():
     """
     Wrapper around the send function of the yagmail API
     """
+    yagmail.SMTP(username).send(to, cc, bcc, contents)
