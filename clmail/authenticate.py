@@ -1,6 +1,4 @@
 #
-# authenticate.py
-#
 # Store and use login credentials for clmail
 #
 # Copyright (C)   2016    Madhav Datt

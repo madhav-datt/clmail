@@ -1,6 +1,4 @@
 #
-# send.py
-#
 # SendMail Class - a wrapper around the SMTP Python Package
 # Send emails from @gmail.com addresses
 #
