@@ -7,13 +7,27 @@
 #
 
 from __future__ import print_function
-import argparse
+from argparse import ArgumentParser
 import sys
 from authenticate import get_password, connect_email_account
 
 # Email account authentication credentials
 username = None
 password = None
+
+# Parsers and dictionary of email action command parsers
+new_parser = ArgumentParser(description='Send a new email')
+new_parser.add_argument('-t', '--to', action='store', dest='to', help='email address of recipient')
+new_parser.add_argument('-cc', '--cc', action='store', dest='cc', help='email address of recipient')
+new_parser.add_argument('-bcc', '--bcc', action='store', dest='bcc', help='email address of recipient')
+
+
+parsers_dict = {
+    'new': 'p',
+    'forward': 'p',
+    'reply': 'p',
+    'read':
+}
 
 
 def main():
@@ -28,8 +42,8 @@ def main():
     print("See the GNU General Public Licence for license details.")
     print("\n")
 
-    parser = argparse.ArgumentParser(description='clmail - minimalistic command line email')
-    parser.add_argument('-u', '--username', action='store', dest='username',
+    parser = ArgumentParser(description='clmail - minimalistic command line email')
+    parser.add_argument('-u', '--username', action='store', dest='username', required=True,
                         help='username/email address (must be a gmail address)')
     parser.add_argument('-p', '--password', action='store', dest='password',
                         help='password for email address', default=None)
