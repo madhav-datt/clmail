@@ -15,7 +15,7 @@ from authenticate import get_password, connect_email_account
 username = None
 password = None
 
-# Parsers and dictionary of email action command parsers
+# Email action command parsers
 mail_parser = ArgumentParser(description='Send a new email')
 mail_parser.add_argument('-t', '--to', action='store', dest='to', required=False)
 mail_parser.add_argument('-cc', '--cc', action='store', dest='cc', required=False)
@@ -25,6 +25,7 @@ mail_parser.add_argument('-h', '--html', action='append', dest='contents', requi
 mail_parser.add_argument('-b', '--body', action='append', dest='contents', required=False)
 mail_parser.add_argument('-a', '--attach', action='append', dest='contents', required=False)
 
+# Parsers for reply and forward email commands
 reply_parser = ArgumentParser(mail_parser, description='Reply to/forward an email')
 reply_parser.add_argument('email_num', action='store', dest='email_num', type=int, choice=[1, 2, 3, 4, 5],
                           required=True, help='serial number of the email to forward/reply to')
@@ -46,7 +47,7 @@ def main():
     parser.add_argument('-u', '--username', action='store', dest='username', required=True,
                         help='username/email address (must be a gmail address)')
     parser.add_argument('-p', '--password', action='store', dest='password',
-                        help='password for email address', default=None)
+                        help='password for the email address', default=None)
     parser.add_argument('-s', '--save-pass', action='store_true', dest='save',
                         help='save password securely in keyring', default=False)
     args = parser.parse_args(sys.argv)
@@ -63,6 +64,15 @@ def main():
     else:
         password = args.password
 
+    # Dictionary of email command functions
+    cmd ={
+
+    }
+
+    while True:
+        command_input = input('>>> ')
+        command_input = command_input.split()
+        cmd[command_input[0]](command_input[1:])
 
 if __name__ == "__main__":
     main()
