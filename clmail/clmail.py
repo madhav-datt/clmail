@@ -16,18 +16,14 @@ username = None
 password = None
 
 # Parsers and dictionary of email action command parsers
-new_parser = ArgumentParser(description='Send a new email')
-new_parser.add_argument('-t', '--to', action='store', dest='to', help='email address of recipient')
-new_parser.add_argument('-cc', '--cc', action='store', dest='cc', help='email address of recipient')
-new_parser.add_argument('-bcc', '--bcc', action='store', dest='bcc', help='email address of recipient')
-
-
-parsers_dict = {
-    'new': 'p',
-    'forward': 'p',
-    'reply': 'p',
-    'read':
-}
+mail_parser = ArgumentParser(description='Send a new email')
+mail_parser.add_argument('-t', '--to', action='store', dest='to')
+mail_parser.add_argument('-cc', '--cc', action='store', dest='cc')
+mail_parser.add_argument('-bcc', '--bcc', action='store', dest='bcc')
+mail_parser.add_argument('-s', '--subject', action='store', dest='subject')
+mail_parser.add_argument('-h', '--html', action='append', dest='contents')
+mail_parser.add_argument('-b', '--body', action='append', dest='contents')
+mail_parser.add_argument('-a', '--attach', action='append', dest='contents')
 
 
 def main():
