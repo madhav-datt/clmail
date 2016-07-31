@@ -17,13 +17,17 @@ password = None
 
 # Parsers and dictionary of email action command parsers
 mail_parser = ArgumentParser(description='Send a new email')
-mail_parser.add_argument('-t', '--to', action='store', dest='to')
-mail_parser.add_argument('-cc', '--cc', action='store', dest='cc')
-mail_parser.add_argument('-bcc', '--bcc', action='store', dest='bcc')
-mail_parser.add_argument('-s', '--subject', action='store', dest='subject')
-mail_parser.add_argument('-h', '--html', action='append', dest='contents')
-mail_parser.add_argument('-b', '--body', action='append', dest='contents')
-mail_parser.add_argument('-a', '--attach', action='append', dest='contents')
+mail_parser.add_argument('-t', '--to', action='store', dest='to', required=False)
+mail_parser.add_argument('-cc', '--cc', action='store', dest='cc', required=False)
+mail_parser.add_argument('-bcc', '--bcc', action='store', dest='bcc', required=False)
+mail_parser.add_argument('-s', '--subject', action='store', dest='subject', required=False)
+mail_parser.add_argument('-h', '--html', action='append', dest='contents', required=False)
+mail_parser.add_argument('-b', '--body', action='append', dest='contents', required=False)
+mail_parser.add_argument('-a', '--attach', action='append', dest='contents', required=False)
+
+reply_parser = ArgumentParser(mail_parser, description='Reply to/forward an email')
+reply_parser.add_argument('email_num', action='store', dest='email_num', type=int, choice=[1, 2, 3, 4, 5],
+                          required=True, help='serial number of the email to forward/reply to')
 
 
 def main():
