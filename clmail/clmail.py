@@ -65,14 +65,23 @@ def main():
         password = args.password
 
     # Dictionary of email command functions
-    cmd ={
-
+    cmd = {
+        'new': new_mail,
+        'reply': reply_mail,
+        'forward': forward_mail,
+        'read': read_mail
     }
 
     while True:
         command_input = input('>>> ')
         command_input = command_input.split()
-        cmd[command_input[0]](command_input[1:])
+
+        try:
+            cmd[command_input[0]](command_input[1:])
+        except KeyError:
+            print('Command not recognized')
+            print_help()
+
 
 if __name__ == "__main__":
     main()
